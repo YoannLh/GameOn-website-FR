@@ -10,7 +10,7 @@ class Modal {
 		this.closeButton = document.getElementById("close");
 	}
 
-	displayModal() {
+	displayOrCloseModal() {
 
 		this.modalBtn.addEventListener("click", () => {
 
@@ -26,7 +26,7 @@ class Modal {
 
 const modal = new Modal();
 
-modal.displayModal();
+modal.displayOrCloseModal();
 
 
 
