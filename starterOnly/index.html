@@ -70,6 +70,7 @@
                   id="first"
                   name="first"
                 /><br>
+                <div id="alertFirstName" class="alert">Veuillez entrer 2 caractères ou plus.</div>
               </div>
               <div
                 class="formData">
@@ -80,6 +81,7 @@
                   id="last"
                   name="last"
                 /><br>
+                <div id="alertLastName" class="alert">Veuillez entrer 2 caractères ou plus.</div>
               </div>
               <div
                 class="formData">
@@ -90,6 +92,7 @@
                   id="email"
                   name="email"
                 /><br>
+                <div id="alertMail" class="alert">Veuillez renseigner votre mail.</div>
               </div>
               <div
                 class="formData">
@@ -100,12 +103,14 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <div id="alertBirthdate" class="alert">Veuillez indiquer votre date de naissance.</div>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input class="text-control" id="quantity" name="quantity">
               </div>
+              <div id="alertTournament" class="alert">Veuillez renseigner une valeur numérique.</div>
               <p class="text-label">Quelles villes ?</p>
               <div
                 class="formData">
@@ -176,7 +181,7 @@
                   Portland</label
                 >
               </div>
-
+              <div id="alertTown" class="alert">Veuillez cocher une case.</div>
               <div
                 class="formData">
                 <input
@@ -197,13 +202,15 @@
                 </label>
                 <br>
               </div>
+              <div id="alertCGU" class="alert">Vous devez vérifier que vous acceptez les termes et conditions.</div>
               <input
                 id="btn-submit"
                 class="btn-submit"
-                type="submit"
+                
                 class="button"
                 value="C'est parti"
               />
+              <!-- ^ type="submit" -->
             </form>
           </div>
         </div>
