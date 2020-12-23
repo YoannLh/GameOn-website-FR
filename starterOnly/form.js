@@ -153,7 +153,7 @@ class Form {
 
 		this.numberOfTournament.addEventListener("input", () => {
 
-			if(!this.numberOfTournament.value) {
+			if(!this.numberOfTournament.value || isNaN(this.numberOfTournament.value)) {
 
 				this.alertTournament.style.display = "block";
 
@@ -162,16 +162,9 @@ class Form {
 				this.alertTournament.style.display = "none";
 			}
 
-			let numberOfTour = this.numberOfTournament.value;
+			console.log(Number(this.numberOfTournament.value));
 
-			console.log(Number(numberOfTour));
-
-			localStorage.setItem("tournament", Number(numberOfTour));
-
-			// if(typeof Number(numberOfTour) === "number") {
-
-			// 	console.log("Veuillez renseigner une valeur numérique");
-			// }
+			localStorage.setItem("tournament", Number(this.numberOfTournament.value));
 		});
 	}
 }
