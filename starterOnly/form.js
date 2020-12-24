@@ -1,4 +1,4 @@
-
+ 
 // Les données doivent être saisies correctement :
 // (1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
 // (2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
@@ -14,7 +14,6 @@
 // "Vous devez choisir une option."
 // "Vous devez vérifier que vous acceptez les termes et conditions."
 // "Vous devez entrer votre date de naissance."
-
 
 class Form {
 
@@ -46,15 +45,67 @@ class Form {
 		this.checkbox1 = document.getElementById("checkbox1");
 		this.checkbox2 = document.getElementById("checkbox2");
 		this.alertCGU = document.getElementById("alertCGU");
+		this.checkIfSubmitFailed = false;
 
 	}
 
-	isAllGoodWhenButtonSubmitIsClicked() {
+	isItAllGood() {
 
-		this.buttonSubmit.addEventListener("click", () => {
+		if(this.checkIfSubmitFailed) { 
 
-			console.log("submit");
+			// check si le prénom est valide
+			if(this.firstName.value.length < 2) {
 
+				this.alertFirstName.style.display = "block";
+
+			} else {
+
+				this.alertFirstName.style.display = "none";
+			}
+
+			// check si le nom est valide
+			if(this.lastName.value.length < 2) {
+
+				this.alertLastName.style.display = "block";
+
+			} else {
+
+				this.alertLastName.style.display = "none";
+			}
+
+			// check si le mail est valide
+			let mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+			if(!this.mail.value.match(mailFormat)) {
+
+				this.alertMail.style.display = "block";
+
+			} else {
+
+				this.alertMail.style.display = "none";
+			}
+
+			// check si la date de naissance est saisie
+			if(!this.birthdate.value) {
+
+				this.alertBirthdate.style.display = "block";
+
+			} else {
+
+				this.alertBirthdate.style.display = "none";
+			}
+
+			// check si la valeur est saisie et est numérique
+			if(!this.numberOfTournament.value || isNaN(this.numberOfTournament.value)) {
+
+				this.alertTournament.style.display = "block";
+
+			} else {
+
+				this.alertTournament.style.display = "none";
+			}
+
+			// boutons radio villes
 			if(this.location1.checked === false 
 			&& this.location2.checked === false
 			&& this.location3.checked === false
@@ -69,6 +120,7 @@ class Form {
 				this.alertTown.style.display = "none";
 			}
 
+			// check si CGU est cochée
 			if(this.checkbox1.checked === false) {
 
 				this.alertCGU.style.display = "block";
@@ -77,56 +129,34 @@ class Form {
 
 				this.alertCGU.style.display = "none";
 			}
-
-		});
+		}
 	}
 
-	storeAndcheckIfNamesAreEnoughLonger() {
+	storeNames() {
 
 		console.log(this.firstName.value);
 		console.log(this.lastName.value);
 
 		this.firstName.addEventListener("input", () => {
 
-			if(this.firstName.value.length < 2) {
-
-				this.alertFirstName.style.display = "block";
-
-			} else {
-
-				this.alertFirstName.style.display = "none";
-			}
+			this.isItAllGood();
 
 			localStorage.setItem("firstName", this.firstName.value);
 		});
 
 		this.lastName.addEventListener("input", () => {
 
-			if(this.lastName.value.length < 2) {
-
-				this.alertLastName.style.display = "block";
-
-			} else {
-
-				this.alertLastName.style.display = "none";
-			}
+			this.isItAllGood();
 
 			localStorage.setItem("lastName", this.lastName.value);
 		});	
 	}
 
-	checkIfMailIsOk() {
+	storeMail() {
 
 		this.mail.addEventListener("input", () => {
 
-			if(!this.mail.value) { // <<< Regex
-
-				this.alertMail.style.display = "block";
-
-			} else {
-
-				this.alertMail.style.display = "none";
-			}
+			this.isItAllGood();
 
 			localStorage.setItem("mail", this.mail.value);
 		});
@@ -136,46 +166,140 @@ class Form {
 
 		this.birthdate.addEventListener("input", () => {
 
-			if(!this.birthdate.value) {
-
-				this.alertBirthdate.style.display = "block";
-
-			} else {
-
-				this.alertBirthdate.style.display = "none";
-			}
+			this.isItAllGood();	
 
 			localStorage.setItem("birthdate", this.birthdate.value);
 		});
 	}
 
-	checkIfTournamentsIsANumber() {
+	storeNumberOfTournaments() {
 
 		this.numberOfTournament.addEventListener("input", () => {
 
-			if(!this.numberOfTournament.value || isNaN(this.numberOfTournament.value)) {
-
-				this.alertTournament.style.display = "block";
-
-			} else {
-
-				this.alertTournament.style.display = "none";
-			}
+			this.isItAllGood();
 
 			console.log(Number(this.numberOfTournament.value));
 
 			localStorage.setItem("tournament", Number(this.numberOfTournament.value));
+		})
+	}
+
+	storeTown() {
+
+		this.location1.addEventListener("click", () => {
+
+			this.isItAllGood();
+
+			if(this.location1.checked === true) { 
+
+				localStorage.setItem("town", this.location1.value);
+			}
+		});
+
+		this.location2.addEventListener("click", () => {
+
+			this.isItAllGood();
+
+			if(this.location2.checked === true) { 
+
+				localStorage.setItem("town", this.location2.value);
+			}
+		});
+
+		this.location3.addEventListener("click", () => {
+
+			this.isItAllGood();
+
+			if(this.location3.checked === true) { 
+
+				localStorage.setItem("town", this.location3.value);
+			}
+		});
+
+		this.location4.addEventListener("click", () => {
+
+			this.isItAllGood();
+
+			if(this.location4.checked === true) { 
+
+				localStorage.setItem("town", this.location4.value);
+			}
+		});
+
+		this.location5.addEventListener("click", () => {
+
+			this.isItAllGood();
+
+			if(this.location5.checked === true) { 
+
+				localStorage.setItem("town", this.location5.value);
+			}
+		});
+
+		this.location6.addEventListener("click", () => {
+
+			this.isItAllGood();
+
+			if(this.location6.checked === true) { 
+
+				localStorage.setItem("town", this.location6.value);
+			}
+		});
+
+		let town = localStorage.getItem("town");
+
+		if(this.location1.value === town) {
+
+			this.location1.checked = true;
+		}
+
+		if(this.location2.value === town) {
+
+			this.location2.checked = true;
+		}
+
+		if(this.location3.value === town) {
+
+			this.location3.checked = true;
+		}
+
+		if(this.location4.value === town) {
+
+			this.location4.checked = true;
+		}
+
+		if(this.location5.value === town) {
+
+			this.location5.checked = true;
+		}
+
+		if(this.location6.value === town) {
+
+			this.location6.checked = true;
+		}
+	}
+
+	isItAllGoodWhenButtonSubmitIsClicked() {
+
+		this.buttonSubmit.addEventListener("click", () => {
+
+			console.log("submit");
+
+			this.checkIfSubmitFailed = true;
+
+			this.isItAllGood();		
 		});
 	}
 }
 
 const form = new Form();
 
-form.isAllGoodWhenButtonSubmitIsClicked();
-form.storeAndcheckIfNamesAreEnoughLonger();
-form.checkIfMailIsOk();
+form.storeNames();
+form.storeMail();
 form.storeBirthdate();
-form.checkIfTournamentsIsANumber();
+form.storeNumberOfTournaments();
+form.storeTown();
+form.isItAllGoodWhenButtonSubmitIsClicked();
 
 console.log(localStorage);
 
