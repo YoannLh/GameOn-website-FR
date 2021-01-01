@@ -46,7 +46,7 @@ class Form {
 		this.checkbox2 = document.getElementById("checkbox2");
 		this.alertCGU = document.getElementById("alertCGU");
 		this.checkIfSubmitFailed = false;
-
+		this.goToConfirmation = false;
 	}
 
 	isItAllGood() {
@@ -95,8 +95,10 @@ class Form {
 				this.alertBirthdate.style.display = "none";
 			}
 
-			// check si la valeur est saisie et est numérique
-			if(!this.numberOfTournament.value || isNaN(this.numberOfTournament.value)) {
+			// check si la valeur est saisie est numérique et différente de 0
+			if(!this.numberOfTournament.value 
+			|| isNaN(this.numberOfTournament.value)
+			|| this.numberOfTournament.value === "0") {
 
 				this.alertTournament.style.display = "block";
 
@@ -288,6 +290,23 @@ class Form {
 			this.checkIfSubmitFailed = true;
 
 			this.isItAllGood();		
+
+			if(this.alertFirstName.style.display === "none" 
+			&& this.alertLastName.style.display === "none"
+			&& this.alertMail.style.display === "none"
+			&& this.alertBirthdate.style.display === "none"
+			&& this.alertTournament.style.display === "none"
+			&& this.alertTown.style.display === "none"
+			&& this.alertCGU.style.display === "none") {
+
+				this.goToConfirmation = true;
+			
+			} else {
+
+				this.goToConfirmation = false;
+			}
+
+			console.log(this.goToConfirmation);
 		});
 	}
 }

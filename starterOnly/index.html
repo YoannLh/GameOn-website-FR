@@ -17,7 +17,6 @@
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
-      
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
@@ -51,15 +50,14 @@
           je m'inscris
         </button>
       </div>
-
       <div class="bground">
         <div class="content">
           <span id="close"></span>
           <div class="modal-body">
             <form
               name="reserve"
-              action="index.html"
-              method="get"
+              action=""
+              method=""
             >
               <div
                 class="formData">
@@ -207,10 +205,25 @@
                 id="btn-submit"
                 class="btn-submit"
                 class="button"
+                type="button"
                 value="C'est parti"
               />
-              <!-- ^ type="submit" -->
             </form>
+          </div>
+        </div>
+      </div>
+      <div class="bgroundConfirmation">
+        <div class="contentConfirmation">
+          <span id="closeConfirmation"></span>
+          <div class="modal-bodyConfirmation">
+           <div style="margin: auto; width: 70%;">Thank you for submitting your registration details</div>
+           <input
+              id="btn-submitConfirmation"
+              class="btn-submit"
+              class="button"
+              type="button"
+              value="Close"
+            />
           </div>
         </div>
       </div>
@@ -222,5 +235,6 @@
     </footer>
     <script src="modal.js"></script>
     <script src="form.js"></script>
+    <script src="modalOfConfirmation.js"></script>
   </body>
 </html>
