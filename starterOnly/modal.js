@@ -6,6 +6,7 @@ class Modal {
 
 		this.modalBg = document.querySelector(".bground");
 		this.modalBtn = document.querySelector(".modal-btn");
+		this.modalBtnMobile = document.getElementById("buttonSignUpForMobile");
 		this.formData = document.querySelectorAll(".formData");
 		this.closeButton = document.getElementById("close");
 	}
@@ -13,6 +14,11 @@ class Modal {
 	displayOrCloseModal() {
 
 		this.modalBtn.addEventListener("click", () => {
+
+			this.modalBg.style.display = "block";
+		});
+
+		this.modalBtnMobile.addEventListener("click", () => {
 
 			this.modalBg.style.display = "block";
 		});
@@ -31,14 +37,14 @@ modal.displayOrCloseModal();
 
 
 
-// function editNav() {
-//   var x = document.getElementById("myTopnav");
-//   if (x.className === "topnav") {
-//     x.className += " responsive";
-//   } else {
-//     x.className = "topnav";
-//   }
-// }
+function editNav() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
 
 // // DOM Elements
 // const modalbg = document.querySelector(".bground");
