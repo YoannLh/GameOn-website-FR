@@ -37,6 +37,17 @@ img {
 .header-logo {
     float: left;
 }
+@media screen and (max-width: 540px) {
+  .topnav {
+    display: flex;
+  }
+  .header-logo {
+    margin: 3% auto 0 3%;
+  }
+  .logo {
+    width: 50%;
+  }
+}
 .main-navbar {
     float: right;
 }
@@ -66,6 +77,7 @@ img {
 
 .topnav .icon {
   display: none;
+  color: red;
 }
 
 @media screen and (max-width: 768px) {
@@ -77,11 +89,14 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 3%;
+    z-index: 10;
   }
   .topnav.responsive a {
     float: none;
@@ -90,13 +105,8 @@ img {
   }
 }
 
-
-
  @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
   .topnav a.icon {
-    float: right;
-    display: block;
     margin-top: 0;
   }
 } 
@@ -169,6 +179,12 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+@media screen and (max-width: 540px) {
+  .bground {
+    background-color: rgba(26, 39, 156, 0);
+  }
+}
+
 .content {
   margin: 5% auto;
   width: 100%;
@@ -181,6 +197,22 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+
+@media screen and (max-width: 540px) {
+  .content {
+    position: relative;
+    top: 7%;
+  }
+  .content label {
+    margin-bottom: 2px;
+  }
+  .content .btn-submit {
+    margin-top: 3%;
+  }
+  .content .formData {
+    text-align: left;
+  }
 }
 
 .modal-body {
@@ -440,11 +472,21 @@ input[data-error]::after {
   font-weight: normal;
   white-space: nowrap;
 }
+@media screen and (max-width: 540px) {
+  .hero-headline {
+    font-size: 3em;
+  }
+}
 .hero-text {
   width: 146%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
+}
+@media screen and (max-width: 540px) {
+  .hero-text {
+    font-size: 1em;
+  }
 }
 .btn-signup {
   outline: none;
@@ -517,6 +559,18 @@ footer {
   }
 }
 
+@media screen and (max-width: 540px) {
+  .hero-headline {
+    font-size: 1.7em;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .hero-text {
+    font-size: 0.9em;
+  }
+}
+
 @keyframes modalopen {
   from {
     opacity: 0;
@@ -545,6 +599,12 @@ footer {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+@media screen and (max-width: 540px) {
+  .bgroundConfirmation {
+    background-color: rgba(26, 39, 156, 0);
+  }
+}
+
 .contentConfirmation {
   margin: 5% auto;
   width: 100%;
@@ -559,6 +619,22 @@ footer {
   padding-top: 10px;
 }
 
+@media screen and (max-width: 540px) {
+  .contentConfirmation {
+    position: relative;
+    top: 7%;
+  }
+  .contentConfirmation label {
+    margin-bottom: 2px;
+  }
+  .contentConfirmation .btn-submit {
+    margin-top: 3%;
+  }
+  .contentConfirmation .formData {
+    text-align: left;
+  }
+}
+
 .modal-bodyConfirmation {
   display: flex;
   flex-direction: column;
@@ -566,6 +642,12 @@ footer {
   padding: 15px 8%;
   margin: auto;
   font-size: 1.4em;
+}
+
+@media screen and (max-width: 540px) {
+  .modal-bodyConfirmation {
+    height: 655px;
+  }
 }
 
 .btn-submitConfirmation {  
