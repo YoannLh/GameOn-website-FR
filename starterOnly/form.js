@@ -320,9 +320,6 @@ form.storeNumberOfTournaments();
 form.storeTown();
 form.isItAllGoodWhenButtonSubmitIsClicked();
 
-console.log(localStorage);
-
-//localStorage.clear();
 
 
 

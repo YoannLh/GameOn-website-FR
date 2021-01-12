@@ -37,6 +37,9 @@ img {
 .header-logo {
     float: left;
 }
+#myTopnav {
+  height: 60px;
+}
 @media screen and (max-width: 540px) {
   .topnav {
     display: flex;
@@ -83,14 +86,15 @@ img {
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
-    float: right;
+    position: relative;
+    right: 20px;
     display: block;
   }
 }
 
 @media screen and (max-width: 768px) {
   .topnav.responsive {
-    position: relative;
+    
   }
   .topnav.responsive .icon {
     position: absolute;
@@ -102,6 +106,13 @@ img {
     float: none;
     display: block;
     text-align: left;
+  }
+  .main-navbar {
+    position: absolute;
+    display: block;
+    right: 0;
+    z-index: 10;
+    background: white;
   }
 }
 
