@@ -47,7 +47,7 @@ img {
   }
   .main-navbar {
     width: 59%;
-}
+  }
 }
 @media screen and (max-width: 540px) {
   .topnav {
@@ -713,6 +713,10 @@ footer {
 }
 #closeConfirmation:after {
   transform: rotate(-45deg);
+}
+.thankYou {
+  margin: auto; 
+  width: 70%;
 }
 
 

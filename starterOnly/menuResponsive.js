@@ -2,20 +2,30 @@
 
 class MenuResponsive {
 
+	constructor() {
+
+		this.iconMenu = document.getElementById("iconMenu");
+	}
+
 	editNav() {
 
-		const iconBurger = document.getElementById("myTopnav");
+		this.iconMenu.addEventListener("click", () => {
 
-		if (iconBurger.className === "topnav") {
+			const iconBurger = document.getElementById("myTopnav");
 
-			iconBurger.className += " responsive";
+			if (iconBurger.className === "topnav") {
 
-		} else {
+				iconBurger.className += " responsive";
 
-			iconBurger.className = "topnav";
-		}
+			} else {
+
+				iconBurger.className = "topnav";
+			}
+		})
 	}
 }
 
 const menuResponsive = new MenuResponsive();
+
+menuResponsive.editNav();
 
